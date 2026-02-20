@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCLC Workers' Meeting - Reaps 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base styles and Blurred Background Image */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bg-blurred.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Floating Glassmorphism Top Navigation */
+        .nav-wrapper {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        nav {
+            /* Frosted glass effect for nav */
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+            padding: 10px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #5c2d0c;
+            text-decoration: none;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 0.95em;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #d1783c;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(209, 120, 60, 0.4);
+            border-color: transparent;
+        }
+
+        /* Main Content Container (True Glassmorphism) */
+        .container {
+            max-width: 900px;
+            margin: 40px auto 60px;
+            /* Frosted glass effect */
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            
+            padding: 60px 50px;
+            border-radius: 24px; 
+            min-height: 60vh;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px dashed rgba(209, 120, 60, 0.4);
+        }
+
+        .header-section h2 {
+            color: #d1783c;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .header-section h1 {
+            color: #3e1f08;
+            font-size: 2.8em;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.6);
+        }
+
+        .theme {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #a85420;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .venue-date {
+            font-size: 1.05em;
+            color: #444;
+            font-weight: 600;
+            text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+        }
+
+        /* Tab Content Control */
+        .tab-content {
+            display: none;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Schedule Tables - Glassmorphism Look */
+        .tab-content h2 {
+            color: #3e1f08;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: left;
+            border-left: 6px solid #d1783c;
+            padding-left: 15px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .schedule-title {
+            background: linear-gradient(135deg, #5c2d0c, #3e1f08);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 0;
+            text-align: left;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 35px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-top: none;
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        table tr:last-child th, table tr:last-child td {
+            border-bottom: none;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #8b4513;
+            width: 35%;
+            font-weight: 600;
+        }
+
+        td {
+            color: #222;
+            font-weight: 500;
+        }
+        
+        table tr:hover td, table tr:hover th {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .coordinators {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 0.95em;
+            text-align: center;
+            font-weight: 600;
+            color: #5c2d0c;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Lyrics and Vow Sections - Glassmorphism */
+        .special-section {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .special-section h2 {
+            text-align: center;
+            border-left: none;
+            padding-left: 0;
+            color: #d1783c;
+        }
+
+        .lyrics, .vow-text {
+            text-align: center;
+            white-space: pre-wrap;
+            font-size: 1.1em;
+            color: #222;
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .lyrics {
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { margin: 20px; padding: 30px 20px; border-radius: 16px; }
+            .header-section h1 { font-size: 2em; }
+            nav { padding: 8px; border-radius: 16px; }
+            nav a { padding: 8px 12px; font-size: 0.85em; border-radius: 8px; margin: 2px; }
+            th, td { display: block; width: 100%; box-sizing: border-box; }
+            th { border-bottom: none; padding-bottom: 5px; }
+            td { padding-top: 5px; padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-wrapper">
+        <nav>
+            <a class="nav-link active" data-target="monday">Monday</a>
+            <a class="nav-link" data-target="tuesday">Tuesday</a>
+            <a class="nav-link" data-target="theme-song">Theme Song</a>
+            <a class="nav-link" data-target="vow">Ministerial Vow</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="header-section">
+            <h2>South-Central Luzon</h2>
+            <h1>Conference Workers' Meeting</h1>
+            <h3>Reaps 2026</h3>
+            <div class="theme">Theme: One Direction, One Mission</div>
+            <div class="venue-date">
+                SCLC Bautista Hall<br>
+                February 23-24, 2026
+            </div>
+        </div>
+
+        <div id="monday" class="tab-content active">
+            <h2>February 23, 2026 - Monday</h2>
+
+            <h3 class="schedule-title">Morning (7:30 AM - 12:00 PM)</h3>
+            <table>
+                <tr><th>Song Leader</th><td>Pr. Erne Sariola</td></tr>
+                <tr><th>Theme Song</th><td>Pr. Lemuel Fadriquela</td></tr>
+                <tr><th>Singspiration</th><td>Trio</td></tr>
+                <tr><th>Preliminaries</th><td>Welcome Remarks / Opening Song / Opening Prayer / Musical Offering</td></tr>
+                <tr><th>Message</th><td><strong>Pr. Santi Eranista</strong><br><em>Laguna Field Secretary</em></td></tr>
+                <tr><th>Prayer Garden (ACTS)</th>
+                    <td>
+                        Pr. John Joshua Aniban<br>
+                        Pr. Alijean Baldera<br>
+                        Pr. Ariel Baldoza<br>
+                        Pr. Erwin Bea<br>
+                        Pr. Ramil Pernia<br>
+                        Pr. Erne Sariola
+                    </td>
+                </tr>
+                <tr><th>Activities</th><td>Ministerial Vow / Roll Call</td></tr>
+                <tr><th>Administrator's Time</th>
+                    <td>
+                        <strong>President:</strong> Pr. Joshua Baldera<br>
+                        <strong>Executive Secretary:</strong> Pr. Jubille Estrada<br>
+                        <strong>Treasurer:</strong> Mr. Rubini Vargas Jr.
+                    </td>
+                </tr>
+                <tr><th>Closing Song</th><td>Theme Song</td></tr>
+                <tr><th>Closing Prayer</th><td>Pr. Florencio Peras Jr.</td></tr>
+            </table>
+
+            <h3 class="schedule-title">Afternoon (1:30 PM - 4:30 PM)</h3>
+            <table>
+                <tr><th>Song Leaders</th><td>Pr. Michael Sarco<br>Pr. Lyndon Mar Catolico</td></tr>
+                <tr><th>Singspiration</th><td>Admin & Directors</td></tr>
+                <tr><th>Preliminaries</th><td>Welcome Remarks / Opening Song / Opening Prayer / Musical Offering</td></tr>
+                <tr><th>Directors' Time</th>
+                    <td>
+                        <strong>Stewardship:</strong> Pr. Rhomel Bautista<br>
+                        <strong>SS/PM:</strong> Pr. Rodel Honorica<br>
+                        <strong>Youth:</strong> Pr. Rosevelt Fortu<br>
+                        <strong>Education:</strong> Mrs. Mary Kristine Caspe
+                    </td>
+                </tr>
+                <tr><th>Closing Song</th><td>Theme Song</td></tr>
+                <tr><th>Closing Prayer</th><td>Pr. Rodelio Villas</td></tr>
+            </table>
+            
+            <div class="coordinators">
+                Program Coordinator: Pr. James Gonzales &nbsp;|&nbsp; Song Leader: Pr. Benjar Angelo Lagrada &nbsp;|&nbsp; Pianist: Mrs. Faith Aguilar
+            </div>
+        </div>
+
+        <div id="tuesday" class="tab-content">
+            <h2>February 24, 2026 - Tuesday</h2>
+
+            <h3 class="schedule-title">Morning (7:30 AM - 12:00 PM)</h3>
+            <table>
+                <tr><th>Song Leader</th><td>Pr. Stephen Aguirre</td></tr>
+                <tr><th>Theme Song</th><td>Pr. Erwin Geronimo</td></tr>
+                <tr><th>Singspiration</th><td>Pastors ages 50-65</td></tr>
+                <tr><th>Preliminaries</th><td>Welcome Remarks / Opening Song / Opening Prayer / Musical Offering</td></tr>
+                <tr><th>Message</th><td><strong>Pr. Israel Bacdayan</strong><br><em>Ministerial Secretary, SLPUM</em></td></tr>
+                <tr><th>Prayer Garden (ACTS)</th>
+                    <td>
+                        Pr. Zaldy Estrada<br>
+                        Pr. Joel Romero<br>
+                        Pr. Aaron Robles<br>
+                        Pr. Darwin Remulta<br>
+                        Pr. Erne Sariola
+                    </td>
+                </tr>
+                <tr><th>Activities</th><td>Roll Call</td></tr>
+                <tr><th>Directors' Time</th>
+                    <td>
+                        <strong>Health:</strong> Pr. Experejon Fegalan<br>
+                        <strong>NDR-IEL:</strong> Pr. Joel Caspe<br>
+                        <strong>MA/ACM:</strong> Pr. Erne Sariola<br>
+                        <strong>Communication:</strong> Pr. Erniel Medina
+                    </td>
+                </tr>
+                <tr><th>Closing Song</th><td>Theme Song</td></tr>
+                <tr><th>Closing Prayer</th><td>Pr. Eliam Joshua Azupardo</td></tr>
+            </table>
+
+            <h3 class="schedule-title">Afternoon (1:30 PM - 3:30 PM)</h3>
+            <table>
+                <tr><th>Song Leaders</th><td>Pr. Ismael Ferry</td></tr>
+                <tr><th>Theme Song</th><td>Pr. Michael Dalida</td></tr>
+                <tr><th>Singspiration</th><td>Pastors ages 36-50</td></tr>
+                <tr><th>Preliminaries</th><td>Welcome Remarks / Opening Song / Opening Prayer / Musical Offering</td></tr>
+                <tr><th>Directors' Time</th>
+                    <td>
+                        <strong>Publishing:</strong> Mr. Ariel Ramirez<br>
+                        <strong>WM/ChM/MSA:</strong> Mrs. Mary Grace Fegalan<br>
+                        <strong>FM & Music:</strong> Pr. Graciano Cuizon Jr.
+                    </td>
+                </tr>
+            </table>
+
+            <h3 class="schedule-title">Commitment Program (3:30 PM - 4:30 PM)</h3>
+            <table>
+                <tr><th>Theme Song</th><td>Pr. Franklin Jhon Rollan</td></tr>
+                <tr><th>Participants</th><td>Pastors ages 24-35</td></tr>
+                <tr><th>Preliminaries</th><td>Opening Song / Opening Prayer / Musical Offering</td></tr>
+                <tr><th>Message & Dedicatory Prayer</th><td><strong>Pr. Joshua Baldera</strong> (Speaker)</td></tr>
+                <tr><th>Closing Song</th><td>Theme Song</td></tr>
+                <tr><th>Closing Prayer</th><td>Pr. Sherwin Pajuelas</td></tr>
+            </table>
+
+            <div class="coordinators">
+                Program Coordinator: Pr. Presco Estrada &nbsp;|&nbsp; Song Leader: Lendale Jen Barnedo &nbsp;|&nbsp; Pianist: Mrs. Faith Aguilar
+            </div>
+        </div>
+
+        <div id="theme-song" class="tab-content special-section">
+            <h2>Theme Song: More About Jesus</h2>
+            <div class="lyrics">
+1 More about Jesus would I know,
+more of His grace to others show;
+more of His saving fullness see,
+more of His love who died for me.
+
+<strong>Refrain:</strong>
+More, more about Jesus;
+more, more about Jesus;
+more of His saving fullness see,
+more of His love who died for me.
+
+2 More about Jesus let me learn,
+more of His holy will discern.
+Spirit of God, my Teacher be,
+showing the things of Christ to me. [Refrain]
+
+3 More about Jesus in His Word,
+holding communion with my Lord,
+hearing His voice in ev'ry line,
+making each faithful saying mine. [Refrain]
+
+4 More about Jesus on His throne,
+riches in glory all His own;
+more of His kingdom's sure increase;
+more of His coming, Prince of Peace. [Refrain]
+            </div>
+        </div>
+
+        <div id="vow" class="tab-content special-section">
+            <h2>Ministerial Vow</h2>
+            <div class="vow-text">
+I am a Seventh-day Adventist Minister.
+
+Called to proclaim the Gospel of Salvation in Jesus Christ, the soon-coming Savior, and constrained by His eternal love, I vow to uphold my high calling.
+
+By God's grace, I shall live rightly, justly, with dignity, not exchanging this sacred ministry for any that is less noble, less enduring, less endearing.
+
+By His Spirit, I shall attain unto all excellence within reach.
+
+By His might I shall uphold His word.
+
+By His tender mercies, I shall be a true shepherd to my family, to my flock that all may know God's will and plan both in this world and in the world to come.
+
+Thus, I so commit and pledge all of myself to Him who called me out of darkness into His marvelous light.
+
+So help me God.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.nav-link');
+            const tabs = document.querySelectorAll('.tab-content');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and tabs
+                    links.forEach(l => l.classList.remove('active'));
+                    tabs.forEach(t => t.classList.remove('active'));
+
+                    // Add active class to clicked link
+                    this.classList.add('active');
+
+                    // Show corresponding tab content
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Smooth scroll to the top of the container when a tab is clicked
+                    window.scrollTo({
+                        top: document.querySelector('.container').offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
