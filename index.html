@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCLC Workers' Meeting - Reach26</title>
 
-    <!-- Logo / Favicon -->
     <link rel="icon" href="sclclogo.jpg" type="image/jpeg">
     <link rel="apple-touch-icon" href="sclclogo.jpg">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Base styles and Blurred Background Image */
+        /* Base styles with a Green Tinted Background */
         body {
             font-family: 'Poppins', sans-serif;
-            background-image: url('bg-blurred.png'); 
+            /* Added a dark green gradient overlay to match the poster's vibe */
+            background: linear-gradient(rgba(16, 50, 22, 0.7), rgba(16, 50, 22, 0.7)), url('bg-blurred.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
+            background-color: #103216; /* Fallback dark green */
             color: #333;
             margin: 0;
             padding: 0;
@@ -48,14 +49,13 @@
         }
 
         nav {
-            /* Frosted glass effect for nav */
-            background: rgba(255, 255, 255, 0.55);
+            background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: 50px;
             padding: 10px 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
@@ -63,7 +63,7 @@
         }
 
         nav a {
-            color: #5c2d0c;
+            color: #103216; /* Dark Forest Green */
             text-decoration: none;
             padding: 10px 24px;
             font-weight: 600;
@@ -73,7 +73,7 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px; /* Space between icon and text */
+            gap: 8px;
         }
 
         nav a i {
@@ -81,39 +81,38 @@
         }
 
         nav a:hover, nav a.active {
-            background-color: #d1783c;
+            background-color: #437936; /* Reach Green */
             color: #ffffff;
-            box-shadow: 0 4px 10px rgba(209, 120, 60, 0.4);
+            box-shadow: 0 4px 10px rgba(67, 121, 54, 0.4);
             border-color: transparent;
         }
 
-        /* Main Content Container (True Glassmorphism) */
+        /* Main Content Container */
         .container {
             max-width: 900px;
             margin: 40px auto 60px;
-            /* Frosted glass effect */
-            background: rgba(255, 255, 255, 0.65);
+            /* Lighter frosted glass effect to mimic the torn paper section */
+            background: rgba(245, 245, 245, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-            
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
             padding: 60px 50px;
             border-radius: 24px; 
             min-height: 60vh;
             box-sizing: border-box;
         }
 
-        /* Header Section */
+        /* Header Section styled like the poster */
         .header-section {
             text-align: center;
             margin-bottom: 50px;
             padding-bottom: 30px;
-            border-bottom: 2px dashed rgba(209, 120, 60, 0.4);
+            border-bottom: 2px dashed rgba(67, 121, 54, 0.4);
         }
 
         .header-section h2 {
-            color: #d1783c;
+            color: #e59b35; /* Orange/Gold from the reaps logo */
             font-size: 1.2em;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -122,34 +121,59 @@
         }
 
         .header-section h1 {
-            color: #3e1f08;
-            font-size: 2.8em;
+            color: #103216; /* Dark Forest Green */
+            font-size: 2em;
             font-weight: 800;
-            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-top: 0;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(255,255,255,0.6);
+            margin-bottom: 5px;
+        }
+
+        /* Mimicking the "MISSION reach 26" styling */
+        .mission-reach {
+            font-size: 3.5em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+        .mission-text {
+            color: #103216;
+            text-transform: uppercase;
+        }
+        .reach-text {
+            color: #437936;
+            text-transform: lowercase;
         }
 
         .theme {
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #a85420;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            font-size: 1.4em;
+            font-weight: 800;
+            color: #103216;
+            background: transparent;
             display: inline-block;
             padding: 10px 25px;
-            border-radius: 30px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .theme .theme-label {
+            color: #437936;
+            font-size: 0.8em;
+            display: block;
+            margin-bottom: 5px;
+            font-style: italic;
         }
 
         .venue-date {
             font-size: 1.05em;
             color: #444;
             font-weight: 600;
-            text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* Tab Content Control */
@@ -167,19 +191,18 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Schedule Tables - Glassmorphism Look */
+        /* Schedule Tables */
         .tab-content h2 {
-            color: #3e1f08;
+            color: #103216;
             font-size: 2em;
             margin-bottom: 30px;
             text-align: left;
-            border-left: 6px solid #d1783c;
+            border-left: 6px solid #437936;
             padding-left: 15px;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         .schedule-title {
-            background: linear-gradient(135deg, #5c2d0c, #3e1f08);
+            background: linear-gradient(135deg, #103216, #215428);
             color: #ffffff;
             padding: 12px 20px;
             border-radius: 12px 12px 0 0;
@@ -194,7 +217,7 @@
             border-collapse: separate;
             border-spacing: 0;
             margin-bottom: 35px;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             border-radius: 0 0 12px 12px;
             overflow: hidden;
@@ -207,7 +230,7 @@
             padding: 16px 20px;
             text-align: left;
             vertical-align: top;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         table tr:last-child th, table tr:last-child td {
@@ -215,10 +238,10 @@
         }
 
         th {
-            background-color: rgba(255, 255, 255, 0.8);
-            color: #8b4513;
+            background-color: rgba(245, 245, 245, 0.9);
+            color: #103216;
             width: 35%;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         td {
@@ -227,28 +250,25 @@
         }
         
         table tr:hover td, table tr:hover th {
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 1);
         }
 
         .coordinators {
             background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 12px;
             font-size: 0.95em;
             text-align: center;
             font-weight: 600;
-            color: #5c2d0c;
+            color: #103216;
             margin-top: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* Lyrics and Vow Sections - Glassmorphism */
+        /* Lyrics and Vow Sections */
         .special-section {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.85);
             padding: 40px;
             border-radius: 16px;
             border: 1px solid rgba(255, 255, 255, 0.8);
@@ -259,7 +279,7 @@
             text-align: center;
             border-left: none;
             padding-left: 0;
-            color: #d1783c;
+            color: #437936;
         }
 
         .lyrics, .vow-text {
@@ -280,7 +300,8 @@
         /* Responsive */
         @media (max-width: 768px) {
             .container { margin: 20px; padding: 30px 20px; border-radius: 16px; }
-            .header-section h1 { font-size: 2em; }
+            .header-section h1 { font-size: 1.5em; }
+            .mission-reach { font-size: 2.2em; }
             nav { padding: 8px; border-radius: 16px; }
             nav a { padding: 8px 12px; font-size: 0.85em; border-radius: 8px; margin: 2px; }
             th, td { display: block; width: 100%; box-sizing: border-box; }
@@ -312,16 +333,21 @@
         <div class="header-section">
             <h2>South-Central Luzon Conference</h2>
             <h1>Workers' Meeting</h1>
-            <h3>Mission Reach26</h3>
-            <div class="theme">Theme: One Direction, One Mission</div>
+            <div class="mission-reach">
+                <span class="mission-text">MISSION</span> <span class="reach-text">reach 26</span>
+            </div>
+            <div class="theme">
+                <span class="theme-label">Theme:</span>
+                One Direction<br>One Mission
+            </div>
             <div class="venue-date">
-                SCLC Jose & Eliseo Bautista Hall<br>
-                February 23-24, 2026
+                February 23 - 24<br>
+                SCLC Jose & Eliseo Bautista Hall
             </div>
         </div>
 
         <div id="monday" class="tab-content active">
-            <h2><i class="fa-regular fa-calendar-check" style="color:#d1783c; margin-right: 10px;"></i>February 23, 2026 - Monday</h2>
+            <h2><i class="fa-regular fa-calendar-check" style="color:#437936; margin-right: 10px;"></i>February 23, 2026 - Monday</h2>
 
             <h3 class="schedule-title">Morning (7:30 AM - 12:00 PM)</h3>
             <table>
@@ -383,7 +409,7 @@
         </div>
 
         <div id="tuesday" class="tab-content">
-            <h2><i class="fa-solid fa-calendar-day" style="color:#d1783c; margin-right: 10px;"></i>February 24, 2026 - Tuesday</h2>
+            <h2><i class="fa-solid fa-calendar-day" style="color:#437936; margin-right: 10px;"></i>February 24, 2026 - Tuesday</h2>
 
             <h3 class="schedule-title">Morning (7:30 AM - 12:00 PM)</h3>
             <table>
@@ -402,7 +428,7 @@
                     </td>
                 </tr>
                 <tr><th>Roll Call</th><td>Pr. Erne Sariola</td></tr>
-                <tr>
+                
                     <tr>
     <th>SLPUM Directors' Time</th>
     <td>
@@ -597,4 +623,3 @@ So help me God.
     </script>
 </body>
 </html>
-
