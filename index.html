@@ -16,7 +16,6 @@
         /* Base styles with a Green Tinted Background */
         body {
             font-family: 'Poppins', sans-serif;
-            /* Added a dark green gradient overlay to match the poster's vibe */
             background: linear-gradient(rgba(16, 50, 22, 0.7), rgba(16, 50, 22, 0.7)), url('bg-blurred.png'); 
             background-size: cover;
             background-position: center;
@@ -36,6 +35,44 @@
             margin-bottom: 10px;
         }
 
+        /* --- Floating Panel Dropdown --- */
+        .page-selector-container {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            z-index: 1005;
+        }
+
+        #pageSelector {
+            padding: 10px 35px 10px 15px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: #103216;
+            background-color: rgba(255, 255, 255, 0.65);
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23437936%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 12px auto;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            transition: all 0.3s ease;
+        }
+
+        #pageSelector:hover, #pageSelector:focus {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-color: #437936;
+            box-shadow: 0 8px 32px rgba(67, 121, 54, 0.2);
+        }
+
         /* Floating Glassmorphism Top Navigation */
         .nav-wrapper {
             position: sticky;
@@ -46,6 +83,7 @@
             width: 100%;
             padding: 0 20px;
             box-sizing: border-box;
+            margin-top: 25px; 
         }
 
         nav {
@@ -91,7 +129,6 @@
         .container {
             max-width: 900px;
             margin: 40px auto 60px;
-            /* Lighter frosted glass effect to mimic the torn paper section */
             background: rgba(245, 245, 245, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -103,7 +140,7 @@
             box-sizing: border-box;
         }
 
-        /* Header Section styled like the poster */
+        /* Header Section */
         .header-section {
             text-align: center;
             margin-bottom: 50px;
@@ -112,7 +149,7 @@
         }
 
         .header-section h2 {
-            color: #e59b35; /* Orange/Gold from the reaps logo */
+            color: #e59b35; 
             font-size: 1.2em;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -121,7 +158,7 @@
         }
 
         .header-section h1 {
-            color: #103216; /* Dark Forest Green */
+            color: #103216; 
             font-size: 2em;
             font-weight: 800;
             text-transform: uppercase;
@@ -130,7 +167,6 @@
             margin-bottom: 5px;
         }
 
-        /* Mimicking the "MISSION reach 26" styling */
         .mission-reach {
             font-size: 3.5em;
             font-family: 'Montserrat', sans-serif;
@@ -297,7 +333,19 @@
             font-style: italic;
         }
 
-        /* Responsive */
+        /* Responsive Fallback for smaller screens */
+        @media (max-width: 1050px) {
+            .page-selector-container {
+                position: relative;
+                top: 0;
+                left: 0;
+                padding: 20px 20px 0;
+                text-align: left;
+                z-index: 1001;
+            }
+            .nav-wrapper { margin-top: 10px; }
+        }
+
         @media (max-width: 768px) {
             .container { margin: 20px; padding: 30px 20px; border-radius: 16px; }
             .header-section h1 { font-size: 1.5em; }
@@ -307,10 +355,18 @@
             th, td { display: block; width: 100%; box-sizing: border-box; }
             th { border-bottom: none; padding-bottom: 5px; }
             td { padding-top: 5px; padding-bottom: 20px; }
+            #pageSelector { font-size: 0.9em; padding-left: 15px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="page-selector-container">
+        <select id="pageSelector" onchange="if(this.value !== '#') window.location.href=this.value;">
+            <option value="#" selected>Workers' Meeting (Feb 23-24)</option>
+            <option value="retreat.html">Ministerial Retreat (Feb 25-26)</option>
+        </select>
+    </div>
 
     <div class="nav-wrapper">
         <nav>
@@ -325,6 +381,9 @@
             </a>
             <a class="nav-link" data-target="vow">
                 <i class="fa-solid fa-scroll"></i> Ministerial Vow
+            </a>
+            <a href="https://cloud.sclcadventist.org/s/cMMtCkeLPMo5Tmw" target="_blank">
+                <i class="fa-solid fa-cloud"></i> Resources
             </a>
         </nav>
     </div>
@@ -381,7 +440,6 @@
                 <tr><th>Opening Prayer</th><td>Pr. Michael Sarco</td></tr>
                 <tr><th>Musical Offering</th><td>Admin & Directors</td></tr>
 
-
                 <tr>
     <th>Directors' Time</th>
     <td>
@@ -419,7 +477,7 @@
                 <tr><th>Opening Song</th><td>Theme Song</td></tr>
                 <tr><th>Opening Prayer</th><td>Pr. Erwin Geronimo</td></tr>
                 <tr><th>Musical Offering</th><td>Pastors ages 50-65</td></tr>
-                <tr><th>Message</th><td><strong>Pr. Ramon Tugay</strong><br><em>Health/Youth Director, SLPUM</em></td></tr>
+                <tr><th>Message</th><td><strong>Pr. Israel Bacdayan</strong><br><em>MA/ACM Director, SLPUM</em></td></tr>
                 <tr><th>Prayer Garden (ACTS)</th>
                     <td>
                         Pr. Zaldy Estrada<br>
@@ -434,7 +492,7 @@
     <th>SLPUM Directors' Time</th>
     <td>
         <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
-            <strong>MA/ACM:</strong> <span>Pr. Israel Bacdayan</span>
+            <strong>Health/Youth:</strong> <span>Pr. Ramon Tugay</span>
         </div>
         <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
             <strong>NDR-IEL/SS/PM:</strong> <span>Pr. Relino Urbi</span>
@@ -624,4 +682,3 @@ So help me God.
     </script>
 </body>
 </html>
-
