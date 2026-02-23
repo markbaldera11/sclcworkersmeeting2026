@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministerial Retreat 2026 - SCLC</title>
+
+    <link rel="icon" href="sclclogo.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="sclclogo.jpg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Base styles with a Green Tinted Background */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(16, 50, 22, 0.7), rgba(16, 50, 22, 0.7)), url('bg-blurred.png'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: #103216; /* Fallback dark green */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* --- Floating Panel Dropdown --- */
+        .page-selector-container {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            z-index: 1005;
+        }
+
+        #pageSelector {
+            padding: 10px 35px 10px 15px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: #103216;
+            background-color: rgba(255, 255, 255, 0.65);
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23437936%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 12px auto;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            transition: all 0.3s ease;
+        }
+
+        #pageSelector:hover, #pageSelector:focus {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-color: #437936;
+            box-shadow: 0 8px 32px rgba(67, 121, 54, 0.2);
+        }
+
+        /* Floating Glassmorphism Top Navigation */
+        .nav-wrapper {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            margin-top: 25px; 
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+            padding: 10px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #103216; /* Dark Forest Green */
+            text-decoration: none;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 0.95em;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a i {
+            font-size: 1.1em;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: #437936; /* Reach Green */
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(67, 121, 54, 0.4);
+            border-color: transparent;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 900px;
+            margin: 40px auto 60px;
+            background: rgba(245, 245, 245, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+            padding: 60px 50px;
+            border-radius: 24px; 
+            min-height: 60vh;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px dashed rgba(67, 121, 54, 0.4);
+        }
+
+        .header-section h2 {
+            color: #e59b35; /* Gold/Orange */
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+        }
+
+        .header-section h1 {
+            color: #103216; 
+            font-size: 2.6em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .theme {
+            font-size: 1.3em;
+            font-weight: 800;
+            color: #103216;
+            background: transparent;
+            display: inline-block;
+            padding: 10px 25px;
+            margin-bottom: 20px;
+        }
+        
+        .theme .theme-label {
+            color: #437936;
+            font-size: 0.8em;
+            display: block;
+            margin-bottom: 5px;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        .venue-date {
+            font-size: 1.05em;
+            color: #444;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* Tab Content Control */
+        .tab-content {
+            display: none;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Schedule Tables */
+        .tab-content h2 {
+            color: #103216;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: left;
+            border-left: 6px solid #437936;
+            padding-left: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 35px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        th, td {
+            padding: 20px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        table tr:last-child th, table tr:last-child td {
+            border-bottom: none;
+        }
+
+        th {
+            background-color: rgba(245, 245, 245, 0.9);
+            color: #103216;
+            width: 30%;
+            font-weight: 700;
+            font-size: 1.05em;
+        }
+
+        td {
+            color: #222;
+            font-weight: 500;
+        }
+        
+        table tr:hover td, table tr:hover th {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        /* Highlighted Callout Box */
+        .highlight-box {
+            background: rgba(229, 155, 53, 0.15); 
+            border-left: 4px solid #e59b35;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #103216;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .highlight-box i {
+            color: #e59b35;
+            font-size: 1.5em;
+        }
+
+        /* Sub-program layout */
+        .sub-program {
+            margin-top: 15px; 
+            font-size: 0.95em; 
+            padding-left: 15px; 
+            border-left: 3px solid #437936;
+        }
+        .sub-program-item {
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 8px;
+        }
+
+        /* Responsive Fallbacks */
+        @media (max-width: 1050px) {
+            .page-selector-container {
+                position: relative;
+                top: 0;
+                left: 0;
+                padding: 20px 20px 0;
+                text-align: left;
+                z-index: 1001;
+            }
+            .nav-wrapper { margin-top: 10px; }
+        }
+
+        @media (max-width: 768px) {
+            .container { margin: 20px; padding: 30px 20px; border-radius: 16px; }
+            .header-section h1 { font-size: 1.8em; }
+            nav { padding: 8px; border-radius: 16px; }
+            nav a { padding: 8px 12px; font-size: 0.85em; border-radius: 8px; margin: 2px; }
+            th, td { display: block; width: 100%; box-sizing: border-box; }
+            th { border-bottom: none; padding-bottom: 5px; color: #437936;}
+            td { padding-top: 5px; padding-bottom: 20px; }
+            #pageSelector { font-size: 0.9em; padding-left: 15px; }
+            .sub-program-item { flex-direction: column; margin-bottom: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-selector-container">
+        <select id="pageSelector" onchange="if(this.value !== '#') window.location.href=this.value;">
+            <option value="index.html">Workers' Meeting (Feb 23-24)</option>
+            <option value="#" selected>Ministerial Retreat (Feb 25-26)</option>
+        </select>
+    </div>
+
+    <div class="nav-wrapper">
+        <nav>
+            <a class="nav-link active" data-target="wednesday">
+                <i class="fa-regular fa-calendar-check"></i> Wednesday
+            </a>
+            <a class="nav-link" data-target="thursday">
+                <i class="fa-solid fa-calendar-day"></i> Thursday
+            </a>
+            <a class="nav-link" data-target="reminders">
+                <i class="fa-solid fa-bell"></i> Reminders
+            </a>
+            <!-- <a href="" target="_blank">
+                <i class="fa-solid fa-cloud"></i> Resources
+            </a> -->
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="header-section">
+            <h2>South-Central Luzon Conference</h2>
+            <h1>Ministerial Workers’<br>Spiritual Retreat</h1>
+            <div class="theme">
+                <span class="theme-label">Theme:</span>
+                “Embodied: Faith lived for Mission”
+            </div>
+            <div class="venue-date">
+                February 25 - 26, 2026<br>
+                River Lake, Agoncillo
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <i class="fa-solid fa-hands-praying"></i>
+            <div><strong>Special Reminder:</strong> 7:00 PM and 7:00 AM are scheduled for <strong>777 Prayers</strong> led by Pr. Joel Caspe.</div>
+        </div>
+
+        <div id="wednesday" class="tab-content active">
+            <h2><i class="fa-regular fa-calendar-check" style="color:#437936; margin-right: 10px;"></i>Wednesday, Feb 25</h2>
+
+            <table>
+                <tr>
+                    <th>Upon Arrival</th>
+                    <td><strong>Free Time</strong></td>
+                </tr>
+                <tr>
+                    <th>12:00 PM - 1:00 PM</th>
+                    <td>
+                        <strong>Shared Table Fellowship (Lunch & Conversation)</strong><br>
+                        <em>No agenda talk, only life stories.</em>
+                    </td>
+                </tr>
+                <tr>
+                    <th>1:00 PM - 2:30 PM</th>
+                    <td>
+                        <strong>Pastors’ Circle: Lament & Listening</strong>
+                        <div class="sub-program">
+                            <div class="sub-program-item">
+                                <span><strong>Singspiration:</strong></span> <span>Pr. Ronald Tepan</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Opening Song:</strong></span> <span>Theme Song</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Opening Prayer:</strong></span> <span>Pr. Joehn Wilhelm Galabit</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Welcome Remarks:</strong></span> <span>Pr. Nomer Dacdac</span>
+                            </div>
+                            <div class="sub-program-item" style="margin-bottom: 15px;">
+                                <span><strong>Musical Offering:</strong></span> <span>Pre-Intern</span>
+                            </div>
+                            
+                            <div style="background: rgba(255,255,255,0.6); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+                                <strong style="color: #437936;">Small Group (5-6)</strong><br>
+                                <em>Structured sharing: One joy, one grief, one unanswered prayer.<br>
+                                No fixing, only listening and prayer.</em>
+                            </div>
+
+                            <div class="sub-program-item">
+                                <span><strong>Closing Song:</strong></span> <span></span>
+                            </div>
+                            <div class="sub-program-item" style="margin-bottom: 0;">
+                                <span><strong>Closing Prayer:</strong></span> <span>Pr. Benjie Esquilarga</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>2:30 PM - 5:00 PM</th>
+                    <td><strong>Free Time</strong></td>
+                </tr>
+                <tr>
+                    <th>5:00 PM - 7:00 PM</th>
+                    <td>
+                        <strong>Communion Service (90 mins)</strong><br>
+                        <em>Emphasis: “Broken yet sent”</em>
+                        <div class="sub-program">
+                            <div class="sub-program-item">
+                                <span><strong>Singspiration:</strong></span> <span>Pr. Marchesvan Adap</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Opening Song:</strong></span> <span>Theme Song</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Opening Prayer:</strong></span> <span>Pr. Rhoderick Almeria</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Welcome Remarks:</strong></span> <span>Pr. Hanz John Bacolod</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Musical Offering:</strong></span> <span>Pr. Ernel Garsula</span>
+                            </div>
+                            <div class="sub-program-item" style="margin-bottom: 15px;">
+                                <span><strong>Message:</strong></span> <span></span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Closing Song:</strong></span> <span></span>
+                            </div>
+                            <div class="sub-program-item" style="margin-bottom: 0;">
+                                <span><strong>Closing Prayer:</strong></span> <span>Pr. Benjie Esquilarga</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr style="background: rgba(67, 121, 54, 0.1);">
+                    <th style="color: #437936;">7:00 PM</th>
+                    <td><strong>777 Prayer</strong> - <em>Led by Pr. Joel Caspe</em></td>
+                </tr>
+
+                <tr>
+                    <th>7:00 PM - 8:00 PM</th>
+                    <td>
+                        <strong>Shared Table Fellowship (Dinner & Conversation)</strong><br>
+                        <em>No agenda talk, only life stories (60 mins)</em>
+                    </td>
+                </tr>
+                <tr>
+                    <th>8:00 PM - 9:00 PM</th>
+                    <td>
+                        <strong>Fireside Missional Reflection (Bonfire)</strong><br>
+                        <em>Challenges/Opportunities & Commitment (60 mins)</em>
+                        <div style="margin-top: 10px; font-size: 0.9em; padding: 12px; background: rgba(255,255,255,0.6); border-radius: 8px;">
+                            <strong>Prompt Questions:</strong>
+                            <ul style="margin: 5px 0 10px 0; padding-left: 20px;">
+                                <li>Where has ministry fragmented my soul?</li>
+                                <li>How do I embody the gospel where I am sent?</li>
+                            </ul>
+                            <em>Close with A Special Prayer</em>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>9:00 PM - 11:00 PM</th>
+                    <td><strong>Free Time</strong> (120 mins)</td>
+                </tr>
+                <tr>
+                    <th>11:00 PM - 5:30 AM</th>
+                    <td><strong>Curfew</strong></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div id="thursday" class="tab-content">
+            <h2><i class="fa-solid fa-calendar-day" style="color:#437936; margin-right: 10px;"></i>Thursday, Feb 26</h2>
+
+            <table>
+                <tr>
+                    <th>5:30 AM - 6:15 AM</th>
+                    <td>
+                        <strong>Early Morning Worship / Devotional</strong> (45 mins)
+                        <div class="sub-program">
+                            <div class="sub-program-item">
+                                <span><strong>Singspiration:</strong></span> <span>Pr. Nino Anonuevo</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Opening Song:</strong></span> <span>Theme Song</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Opening Prayer:</strong></span> <span>Pr. Neil Patrick Carreon</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Welcome Remarks:</strong></span> <span>Pr. Deomel Arcenal</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Musical Offering:</strong></span> <span>Regular Pastors</span>
+                            </div>
+                            <div class="sub-program-item" style="margin-bottom: 15px;">
+                                <span><strong>Message:</strong></span> <span></span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Closing Song:</strong></span> <span></span>
+                            </div>
+                            <div class="sub-program-item" style="margin-bottom: 0;">
+                                <span><strong>Closing Prayer:</strong></span> <span>Pr. Benjie Esquilarga</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>6:15 AM - 7:00 AM</th>
+                    <td><strong>Free Time</strong></td>
+                </tr>
+                
+                <tr style="background: rgba(67, 121, 54, 0.1);">
+                    <th style="color: #437936;">7:00 AM</th>
+                    <td><strong>777 Prayer</strong> - <em>Led by Pr. Joel Caspe</em></td>
+                </tr>
+
+                <tr>
+                    <th>7:10 AM - 8:30 AM</th>
+                    <td>
+                        <strong>Shared Table Fellowship (Breakfast & Conversation)</strong><br>
+                        <em>No agenda talk, only life stories (60 mins)</em>
+                    </td>
+                </tr>
+                <tr>
+                    <th>8:30 AM - 10:30 AM</th>
+                    <td><strong>Free Time</strong> (120 mins)</td>
+                </tr>
+                <tr>
+                    <th>10:30 AM - 11:30 AM</th>
+                    <td>
+                        <strong>Commitment</strong> (60 mins)
+                        <div class="sub-program">
+                            <div class="sub-program-item">
+                                <span><strong>Singspiration:</strong></span> <span>Pr. Jezreel Ramos</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Opening Song:</strong></span> <span>Theme Song</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Opening Prayer:</strong></span> <span>Pr. Dave Pedrosa</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Welcome Remarks:</strong></span> <span>Pr. Ismael Ferry</span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Musical Offering:</strong></span> <span>Intern Pastors</span>
+                            </div>
+                            <div class="sub-program-item" style="margin-bottom: 15px;">
+                                <span><strong>Message:</strong></span> <span></span>
+                            </div>
+                            <div class="sub-program-item">
+                                <span><strong>Closing Song:</strong></span> <span></span>
+                            </div>
+                            <div class="sub-program-item" style="margin-bottom: 0;">
+                                <span><strong>Closing Prayer:</strong></span> <span>Pr. Benjie Esquilarga</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="reminders" class="tab-content">
+            <h2><i class="fa-solid fa-bell" style="color:#437936; margin-right: 10px;"></i>Retreat Reminders</h2>
+            <div style="background: rgba(255, 255, 255, 0.8); padding: 30px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    <strong><i class="fa-solid fa-hands-praying" style="color: #e59b35;"></i> 777 Prayer Sessions:</strong><br>
+                    Please remember to gather at exactly <strong>7:00 PM</strong> (Wednesday) and <strong>7:00 AM</strong> (Thursday) for our dedicated 777 Prayer times, led by <strong>Pr. Joel Caspe</strong>.
+                </p>
+                <hr style="border: none; border-top: 1px dashed rgba(67, 121, 54, 0.3); margin: 20px 0;">
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    <strong><i class="fa-solid fa-utensils" style="color: #437936;"></i> Shared Table Fellowship:</strong><br>
+                    During all meal times (Lunch, Dinner, and Breakfast), the goal is genuine connection. There will be <em>no agenda talk</em>—only the sharing of life stories and authentic conversation.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.nav-link');
+            const tabs = document.querySelectorAll('.tab-content');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and tabs
+                    links.forEach(l => l.classList.remove('active'));
+                    tabs.forEach(t => t.classList.remove('active'));
+
+                    // Add active class to clicked link
+                    this.classList.add('active');
+
+                    // Show corresponding tab content
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Smooth scroll to the top of the container
+                    window.scrollTo({
+                        top: document.querySelector('.container').offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
